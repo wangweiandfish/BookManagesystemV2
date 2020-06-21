@@ -70,6 +70,14 @@ public class MainFrm extends JFrame {
 		menu.add(menuItem);
 		
 		JMenuItem menuItem_1 = new JMenuItem("\u56FE\u4E66\u7C7B\u522B\u4FE1\u606F\u66F4\u65B0");
+		menuItem_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				BookNameManageInterFrm manage=new BookNameManageInterFrm();
+				manage.setVisible(true);
+				table.add(manage);
+				
+			}
+		});
 		menuItem_1.setIcon(new ImageIcon(MainFrm.class.getResource("/images/edit.png")));
 		menu.add(menuItem_1);
 		
