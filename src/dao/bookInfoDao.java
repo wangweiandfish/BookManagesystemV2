@@ -99,4 +99,18 @@ public int update(Connection con,BookInfo bookinfo)throws Exception
 	
 	
 }
+/**
+ * ¸üÐÂ¿â´æÁ¿
+ * @param con
+ * @param bookinfo
+ * @return
+ * @throws Exception
+ */
+public int updateCount(Connection con,BookInfo bookinfo)throws Exception{
+	String sql="update t_bookinfo set inStoreCount=? where isbn=?";
+	PreparedStatement presta=con.prepareStatement(sql);
+	presta.setInt(1, bookinfo.getInStoreCount());
+	presta.setString(2, bookinfo.getIsbn());
+	return presta.executeUpdate();
+}
 }

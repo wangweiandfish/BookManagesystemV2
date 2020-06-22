@@ -300,6 +300,14 @@ public class BookNameManageInterFrm extends JInternalFrame {
 			JOptionPane.showMessageDialog(null, "图书名称不能为空!");
 			return;
 		}
+		if(StringUtil.isEmpty(author)) {
+			JOptionPane.showMessageDialog(null, "作者名称不能为空!");
+			return;
+		}
+		if(StringUtil.isEmpty(bookType)) {
+			JOptionPane.showMessageDialog(null, "图书类型不能为空!");
+			return;
+		}
 		BookInfo bookinfo=new BookInfo(isbn, bookName, bookType, author, desc);
 		Connection con=null;
 		try {
