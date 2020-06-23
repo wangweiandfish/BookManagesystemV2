@@ -100,6 +100,13 @@ public class MainFrm extends JFrame {
 		menu_1.add(menuItem_3);
 		
 		JMenuItem menuItem_4 = new JMenuItem("\u56FE\u4E66\u4FE1\u606F\u66F4\u65B0");
+		menuItem_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				BookManageInterFrm add=new BookManageInterFrm();
+				add.setVisible(true);
+				table.add(add);
+			}
+		});
 		menuItem_4.setIcon(new ImageIcon(MainFrm.class.getResource("/images/edit.png")));
 		menu_1.add(menuItem_4);
 		
@@ -128,21 +135,6 @@ public class MainFrm extends JFrame {
 		});
 		menuItem_5.setIcon(new ImageIcon(MainFrm.class.getResource("/images/exit.png")));
 		menu_2.add(menuItem_5);
-		
-		JMenu menu_3 = new JMenu("\u5173\u4E8E\u6211\u4EEC");
-		menu_3.setIcon(new ImageIcon(MainFrm.class.getResource("/images/about.png")));
-		menuBar.add(menu_3);
-		
-		JMenuItem mntmNewMenuItem_1 = new JMenuItem("\u5173\u4E8E\u6211\u4EEC\u7EC4");
-		mntmNewMenuItem_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				AboutMyTeam my=new AboutMyTeam();
-				my.setVisible(true);
-				table.add(my);
-			}
-		});
-		mntmNewMenuItem_1.setIcon(new ImageIcon(MainFrm.class.getResource("/images/about.png")));
-		menu_3.add(mntmNewMenuItem_1);
 		
 		//this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		

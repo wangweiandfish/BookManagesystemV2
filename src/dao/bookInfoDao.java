@@ -44,7 +44,7 @@ public int add(Connection con,BookInfo info) {
  * 查询图书信息集合
  * @param con
  * @param bookinfo
- * @return
+ * @return 
  */
 public ResultSet list(Connection con,BookInfo bookinfo) throws Exception{
 	StringBuffer sb=new StringBuffer("select * from t_bookinfo");

@@ -15,6 +15,13 @@ public Book() {
 	// TODO Auto-generated constructor stub
 }
 
+public Book(int id, String bookName, String bookisbn) {
+	super();
+	this.id = id;
+	this.bookName = bookName;
+	this.bookisbn = bookisbn;
+}
+
 public Book(String bookName, double price, String bookisbn) {
 	super();
 	this.bookName = bookName;
