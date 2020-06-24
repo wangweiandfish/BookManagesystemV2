@@ -22,6 +22,13 @@ public Book(int id, String bookName, String bookisbn) {
 	this.bookisbn = bookisbn;
 }
 
+public Book(int id, String bookName, double price) {
+	super();
+	this.id = id;
+	this.bookName = bookName;
+	this.price = price;
+}
+
 public Book(String bookName, double price, String bookisbn) {
 	super();
 	this.bookName = bookName;

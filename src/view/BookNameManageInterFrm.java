@@ -15,6 +15,7 @@ import javax.swing.table.DefaultTableModel;
 
 import Util.StringUtil;
 import Util.dBUtil;
+import dao.BookDao;
 import dao.bookInfoDao;
 import model.BookInfo;
 import javax.swing.JLabel;
@@ -45,6 +46,7 @@ public class BookNameManageInterFrm extends JInternalFrame {
 	private JTextField bookTypeText;
 	private JTextField authorText;
 	private JTextArea DescText;
+	private BookDao bookdao;
 	/**
 	 * Launch the application.
 	 */
@@ -266,6 +268,11 @@ public class BookNameManageInterFrm extends JInternalFrame {
 			Connection con=null;
 			try {
 				con=dbutil.getCon();
+				boolean isExistBook=bookdao.isExistBookByIsbn(con, isbn);
+				if(isExistBook) {
+					JOptionPane.showMessageDialog(null, "当前图书信息下有图书对象,不能删除此图书信息!");
+					return;
+				}
 				int delNum=infodao.delete(con, isbn);
 				if(delNum==1) {
 					JOptionPane.showMessageDialog(null, "删除成功!");

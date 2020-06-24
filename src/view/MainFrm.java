@@ -110,10 +110,6 @@ public class MainFrm extends JFrame {
 		menuItem_4.setIcon(new ImageIcon(MainFrm.class.getResource("/images/edit.png")));
 		menu_1.add(menuItem_4);
 		
-		JMenuItem mntmNewMenuItem = new JMenuItem("\u56FE\u4E66\u51FA\u5E93");
-		mntmNewMenuItem.setIcon(new ImageIcon(MainFrm.class.getResource("/images/outCount.png")));
-		menu_1.add(mntmNewMenuItem);
-		
 		JMenu menu_2 = new JMenu("\u9000\u51FA\u7CFB\u7EDF");
 		//menu_2.addActionListener(new ActionListener() {
 //			public void actionPerformed(ActionEvent e) {
