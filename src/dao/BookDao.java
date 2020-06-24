@@ -119,6 +119,7 @@ public int update(Connection con,Book book)throws Exception {
 public boolean isExistBookByIsbn(Connection con,String isbn)throws Exception{
 	String sql="select * from t_book where bookisbn=?";
 	PreparedStatement presta=con.prepareStatement(sql);
+	presta.setString(1, isbn);
 	ResultSet rs=presta.executeQuery();
 	return rs.next();
 }

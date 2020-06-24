@@ -258,7 +258,7 @@ public class BookNameManageInterFrm extends JInternalFrame {
 	 * @param e
 	 */
 	private void bookinfoDeleteActionPerformed(ActionEvent e) {
-		String isbn=isbnText.getText();
+		String isbn=isbnText.getText().trim();
 		if(StringUtil.isEmpty(isbn)) {
 			JOptionPane.showMessageDialog(null, "请选择您要删除的图书信息!");
 			return;
@@ -268,11 +268,11 @@ public class BookNameManageInterFrm extends JInternalFrame {
 			Connection con=null;
 			try {
 				con=dbutil.getCon();
-				boolean isExistBook=bookdao.isExistBookByIsbn(con, isbn);
-				if(isExistBook) {
-					JOptionPane.showMessageDialog(null, "当前图书信息下有图书对象,不能删除此图书信息!");
-					return;
-				}
+//				boolean isExistBook=bookdao.isExistBookByIsbn(con, isbn);
+//				if(isExistBook) {
+//					JOptionPane.showMessageDialog(null, "当前图书信息下有图书对象,不能删除此图书信息!");
+//					return;
+//				}
 				int delNum=infodao.delete(con, isbn);
 				if(delNum==1) {
 					JOptionPane.showMessageDialog(null, "删除成功!");

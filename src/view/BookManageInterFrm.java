@@ -337,6 +337,7 @@ public class BookManageInterFrm extends JInternalFrame {
 	 */
 	private void bookDeleteActionPerformed(ActionEvent e) {
 		String id=idText.getText();
+		String isbn=isbnText.getText();
 		if(StringUtil.isEmpty(id)) {
 			JOptionPane.showMessageDialog(null, "请选择您要出库的图书对象!");
 			return;
@@ -348,7 +349,8 @@ public class BookManageInterFrm extends JInternalFrame {
 				con=dbutil.getCon();
 				int delNum=bookdao.delete(con, id);
 				if(delNum==1) {
-					JOptionPane.showMessageDialog(null, "出库成功!");
+					//JOptionPane.showMessageDialog(null, "出库成功!");
+					AutodelStoreCount(isbn);
 					this.resetValue();
 					//this.filllTable(new BookInfo());
 					this.filllTable(new Book());
@@ -504,6 +506,37 @@ public class BookManageInterFrm extends JInternalFrame {
 		idText.setText("");
 		bookTypeNameText.setText("");
 	}
-	
+/**
+ * 该图书出库成功后count--;
+ * @param isbn
+ */
+	private void AutodelStoreCount(String isbn){
+		Connection con=null;
+		BookInfo bookinfo=null;
+		try {
+			con=dbutil.getCon();
+			ResultSet set=bookinfodao.list(con, new BookInfo());//得到所有的bookinfo
+			while(set.next()) {
+				bookinfo=new BookInfo();
+				bookinfo.setIsbn(set.getString("isbn"));
+				if(isbn.equals(bookinfo.getIsbn())) {
+					bookinfo.setInStoreCount(set.getInt("inStoreCount")-1);
+					int modNum=bookinfodao.updateCount(con, bookinfo);
+					if(modNum==1) {
+						JOptionPane.showMessageDialog(null, "图书出库成功!");
+						return;
+					}else {
+						JOptionPane.showMessageDialog(null, "图书出库失败!");
+					}
+				}
+				
+			}
+			JOptionPane.showMessageDialog(null, "图书出库失败!");
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "图书出库失败!");
+		}finally {
+			dbutil.closeDbCon(con);
+		}
+	}
 	
 }
