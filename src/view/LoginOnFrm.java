@@ -168,7 +168,7 @@ private void loginActionPerformed(ActionEvent e) {
 			if(curruser!=null) {
 				JOptionPane.showMessageDialog(null, "登陆成功!");
 				dispose();//销毁当前窗口
-				new MainFrm().setVisible(true);
+				new MainFrm().setVisible(true);//进入主界面
 			}else {
 				JOptionPane.showMessageDialog(null, "用户名或密码错误!");
 			}

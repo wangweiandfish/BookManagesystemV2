@@ -341,7 +341,7 @@ public class BookNameManageInterFrm extends JInternalFrame {
 	 * @param e
 	 */
 	private void bookinfoTableMousePressed(MouseEvent e) {
-		int row=bookinfoTable.getSelectedRow();
+		int row=bookinfoTable.getSelectedRow();//获取鼠标点击行
 		isbnText.setText((String)bookinfoTable.getValueAt(row, 0));
 		bookNameText.setText((String)bookinfoTable.getValueAt(row, 1));
 		bookTypeText.setText((String)bookinfoTable.getValueAt(row, 2));
